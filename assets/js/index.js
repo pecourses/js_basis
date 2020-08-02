@@ -224,3 +224,13 @@ function sayHiToUser(userName, age = 18) {
 
 let result = sayHiToUser("vasya");
 console.log("RESULT =", result);
+
+
+
+
+// Task 1
+/*
+УСЛОВИЕ
+*/
+
+// Task 2
