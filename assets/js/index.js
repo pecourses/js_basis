@@ -1,236 +1,88 @@
 "use strict";
 
-// Именование переменных A-Za-z, 0-9, _, $
-// Нельзя использовать числа в начале и ключевые слова
+let test = "test";
 
-// Однострочный коментарий
+const result = isAdult(5);
 
-/*
+//console.log(cube(3)); error!
 
-Многострочные
-коментарии
+const cube = function (num) {
+  // function expression
+  return num ** 3;
+};
 
-*/
-/* 
-let name = "Vasya";
-let string = `Your name is ${name}`;
-console.log(string);
+console.log(cube(3)); //ok
 
-let check = false; // boolean
-
-let undefinedVariable; // undefined
-
-console.log(typeof undefinedVariable);
-
-let nullValule = null; 
-
-console.log(typeof null);
-
-
-let nameTest;
-
-nameTest = 20;
- */
-///============
-
-/* let inputOne = prompt("enter your num");
-let inputTwo = prompt("enter your num2");
-
-inputOne = +inputOne;
-inputTwo = +inputTwo;
-
- 
-let numberOne = Number(inputOne);
-let numberTwo = Number(inputTwo); 
-let result = numberOne + numberTwo;
-
-console.log(result);
-console.log( isNaN(result) ); */
-/* 
-let testValue = String(50);
-console.log(testValue + " strings");
-
-let num = 10;
-let boolValue = Boolean(num);
-
-console.log(num);
-console.log(boolValue);
-
- */
-//let num1, num2;
-/* 
-let num = 5;
-let num2 = 10;
-
-//num = num + num2;
-num += num2; //=15
-console.log(num);
-
-//num = num - num2;
-num -= num2; //=5
-console.log(num);
-
-//num = num * num2;
-num *= num2; //=50
-console.log(num);
-
-//num = num / num2;
-num /= num2; //=5
-console.log(num);
+/**
+ *
+ * @param {number} a - number to square
+ * @returns {number}
  */
 
-/* 
-let number = 10;
+function square(a) {
+  console.log(a);
 
-console.log(number += 1); // 10  number += 1;
-console.log(number);
-console.log(++number); //12
-console.log(number); //12 */
+  let number = Number(a);
 
-/* 
-let result;
-
-let num1 = "Код";
-let num2 = "Код";
-
-result = num1 < num2;
-// >, <, >=, <=, !==, ===
-
-result = num1 !== num2;
-
-console.log(result); 
-*/
-
-/* 
-let age = 20;
-
-let division = 5;
-
-console.log(20 / 5);
-
-console.log(age % division);
-
-console.log(age ** division);
-
-console.log(age / 0);
-
-
-console.log(!true); 
-*/
-/* 
-let input = prompt("enter day");
-+input;
-if (input <= 10) {
-  console.log(`first part of month`);
-} else if (input > 10 && input < 20) {
-  console.log("second part of month");
-} else if (input > 20) {
-  console.log("thrid part");
-} else {
-  console.log("you did not enter value");
+  return number * number;
 }
- */
 
-/* let result = false || true; //
-// || - находит первое истинное значение
-// && - находит первое ложное значение
+function isAdult(age) {
+  // function declaration
 
-console.log(result);
- */
-/* 
-let input = prompt("Enter digit");
+  console.log(test);
 
-let result = Number(input);
+  let number = Number(age);
 
-if (result >= 0 && result <= 15) {
-  console.log("first part of hour");
-} else if (result > 15 && result <= 30) {
-  console.log("second part of hour");
-} else if (result >= 31 && result <= 45) {
-  console.log("third part");
-} else if (result > 45 && result <= 60) {
-  console.log("fourth part");
-} else {
-  console.log("Enter a valid number");
-}
- */
-/* 
-//========while===========
+  let result = isNaN(number);
 
- let iteration = 0;
-
-while (iteration <= 10) {
-  console.log(iteration);
-
-  iteration++;
-} 
-
-
-//======do-while==========
-
- let iter = 0;
-
-do {
-  console.log("Wow");
-} while (iter === undefined);
- 
-//=========for===========
-
-for (let i = 0; i <= 100; i++) {
-
-  if (i % 2 === 0) {
-    console.log(i);
-    continue; // переход к следующей итерации
-    break; // Выход из цикла
+  if (result) {
+    return false;
   }
 
+  if (number >= 18) {
+    return true;
+  }
+  return false;
 }
+
+// let input = prompt("Enter your number");
+// let input2 = prompt("Enter your number");
+
+// const res2 = power(+input, +input2);
+// console.log(res2);
+
+function power(base, exp) {
+  let result = base;
+
+  for (let i = 1; i < exp; i++) {
+    result *= base;
+  }
+
+  return result;
+}
+
+/**
+ *
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
  */
 
-/* 
-function functionName(params) {
-    // Function Body
-} */
-
-// alert("i am function");
-
-function sayHello() {
-  console.log("Hi");
+function getMaxValue(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
 }
 
-let teste = 10;
-console.log(teste);
+const isEven = function (number) {
+  return number % 2 === 0;
+};
 
-sayHello();
+const testFunc = isEven;
 
-let input = prompt("Enter your name");
-
-sayHiToUser(input);
-
-function sayHiToUser(userName, age = 18) {
-  let it = 0;
-
-  it++;
-  it++;
-
-  console.log(`Hi, ${userName}`);
-  console.log(age);
-  console.log(it); //2
-
-  return it+5, age;
-
-  console.log("beadgrse");
-}
-
-let result = sayHiToUser("vasya");
-console.log("RESULT =", result);
+console.log(testFunc);
 
 
 
-
-// Task 1
-/*
-УСЛОВИЕ
-*/
-
-// Task 2
