@@ -97,3 +97,34 @@ function Car(model) {
 }
 
 const car1 = new Car("Tesla");
+
+const box = {
+  key: "value",
+  test: "testValue",
+  size: "large",
+};
+
+function Box(size, color, content) {
+  this.content = content;
+  this.size = size;
+  this.color = color;
+
+  this.open = function () {
+    return `${this.content} opened`;
+  };
+}
+
+function Crate(size, material, content) {
+  this.content = content;
+  this.size = size;
+  this.material = material;
+
+  this.open = 
+
+}
+
+Crate.prototype = new Box(); // Задаем прототип(Box) для Crate
+
+const crate1 = new Crate("small", "wood", "testContent");
+
+console.log(crate1);
