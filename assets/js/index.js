@@ -1,211 +1,9 @@
 "use strict";
-/* 
-const key = "color";
-
-const sayHi = function () {
-  return "wrong function";
-};
-
-const cat = {
-  color: "red",
-  weight: 3500,
-  amountOfLegs: 4,
-  breed: "sphinx",
-  isMale: true,
-  head: {
-    amountOfEyes: 2,
-    eyeColor: "grey",
-  },
-
-  sayHi() {
-    return "Meow!";
-  },
-};
-
-console.log(cat);
-console.log(cat.head.eyeColor);
-
-const cat2 = {
-  color: "white",
-  weight: 5500,
-  amountOfLegs: 4,
-  breed: "sphinx",
-  isMale: false,
-  head: {
-    amountOfEyes: 2,
-    eyeColor: "grey",
-  },
-
-  sayHi() {
-    return "Meow!";
-  },
-}; */
-/* 
-function Cat(color, weight, breed, name) {
-  this.name = name;
-  this.color = color;
-  this.breed = breed;
-  this.weight = weight;
-
-  this.present = function () {
-    return `My name is ${this.name}`;
-  };
-
-  this.sayHi = function () {
-    return "meow";
-  };
-}
-
-const cat1 = new Cat("white", 4000, "sphinx", "Vasya");
-const cat2 = new Cat("white", 3500, "sphinx", "Pete");
-const cat3 = new Cat("blue", 4200, "siams", "Vlad");
-const cat4 = new Cat("red", 2000, "sphinx", "Murzik");
-
-cat4.color = "black";
-
-console.log(cat1, cat2, cat3, cat4);
- */
-/* 
-function Country(name, population, area) {
-  this.name = name;
-  this.population = population;
-  this.area = area;
-  // this.density = this.population / this.area; logic ERROR
-  this.getDensity = function () {
-    return this.population / this.area;
-  };
-}
-
-const country1 = new Country("USA", 350000000, 120000);
-
-console.log(country1);
-
-function Car(model) {
-  this.model = model;
-  this.speed = 0;
-  this.isGoing = false;
-
-  this.checkSpeed = function () {
-    this.isGoing = this.speed !== 0;
-  };
-
-  this.accelerate = function (speed) {
-    this.speed += speed;
-    this.checkSpeed();
-    return this.speed;
-  };
-}
-
-const car1 = new Car("Tesla");
-
-const box = {
-  key: "value",
-  test: "testValue",
-  size: "large",
-};
-
-function Box(size, color, content) {
-  this.content = content;
-  this.size = size;
-  this.color = color;
-
-  this.open = function () {
-    return `${this.content} opened`;
-  };
-}
-
-function Crate(size, material, content) {
-  this.content = content;
-  this.size = size;
-  this.material = material;
-}
-
-Crate.prototype = new Box(); // Задаем прототип(Box) для Crate
-
-const crate1 = new Crate("small", "wood", "testContent");
-const crate2 = new Crate("small");
-const crate3 = new Crate("small");
-const crate4 = new Crate("small");
-const crate5 = new Crate("small");
-const crate6 = new Crate("small");
-console.log(crate1);
-console.log(crate1.open());
-
-const string = "str";
-
-let str1 = string;
-let str2 = string;
-
-console.log(str1);
-console.log(str2);
-
-str1 += "test";
-
-console.log(str1);
-console.log(str2);
-
-const controlObj = {
-  content: "content",
-  test: "test",
-};
-
-const anotherObj = controlObj;
-
-function checkDate() {
-  //magic
-}
-
-function validateDate() {
-  //magic
-}
- */
-/* const ar100 = [];
-const arr99 = new Array("stest", "tests", "testse");
-
-const arr = [
-  1341,
-  213423,
-  24352,
-  "set",
-  true,
-  [1, 1, 1, 1, 1],
-  { test: "test" },
-  function () {},
-];
-
-console.log(arr);
-//console.log(arr.length);
-
-function logArrayElements(array) {
-
-  for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
-  }
-
-  console.log("=============================");
-
-  array.forEach(function (item) {
-    console.log(item);
-  });
-
-}
-
-logArrayElements(arr);
- */
-
-/* function list() {
-  console.log(arguments);
-}
-
-list("1",2,3,5,6,63,2,233);
- */
-/* 
-const controlArray = ["test", "teste2", "test3", 2345, true];
 
 function ArrayMethods() {
   this.push = function () {
-    for (let i = 0; i < arguments.length; ++i) {
-      this[++this.length] = arguments[i];
+    for (let i = 0; i < arguments.length; i++) {
+      this[this.length++] = arguments[i];
       return this.length;
     }
   };
@@ -220,24 +18,20 @@ function ArrayMethods() {
 
     return lastItem;
   };
+
+  this.forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
+  };
+
+  this[Symbol.iterator] = function () {};
 }
-
- */
-
-/* 
-
-
-
-
-
-
 
 function MyArray() {
   this.length = 0;
-
   for (let i = 0; i < arguments.length; i++) {
     this[this.length] = arguments[i];
-
     this.length++;
   }
 }
@@ -245,76 +39,182 @@ function MyArray() {
 MyArray.prototype = new ArrayMethods();
 
 const myArr = new MyArray("test", "teste2", "test3", 2345, true);
-console.log(myArr.pop());
-//console.log(myArr.push("test"));
- */
-/* 
 
-// Switch example !
+// RECURSION
 
-let input = prompt("Choose your destiny: 1 - Coffee, 2 - Tea, 3 - Water");
-//input = 2;
-
-switch (input) {
-  case "1":
-    {
-      let test = 10;
-      console.log("Your choice is Coffee");
-    }
-    break;
-  case "b":
-  case "2":
-    {
-      let test = 10;
-      console.log("Your choice is Tea");
-    }
-    break;
-  case "3":
-    {
-      console.log("Your choice is water");
-    }
-    break;
-  default: {
-    console.log("Unknown action");
+/* function factorial(number) {
+  debugger;
+  if (number === 1) {
+    return number;
   }
+
+  return number * factorial(number - 1);
+  // return 4 * 3 * 2 * 1
+}
+
+// with array, without template str.
+function logPar(number) {
+  if (number === 1) {
+    return "()";
+  }
+  return `(${logPar(number - 1)})`;
+}
+
+function power(number, pow) {
+  if (pow === 0) {
+    return 1;
+  }
+
+  if (pow === 1) {
+    return number;
+  }
+
+  const powAbs = Math.abs(pow);
+  const result = number * power(number, powAbs - 1);
+
+  if (pow > 0) {
+    return result;
+  } else {
+    return 1 / result;
+  }
+}
+
+function logRange(min, max) {
+  if (min === undefined || max === undefined || min > max) {
+    console.error("Enter a valid range");
+    return;
+  }
+
+  console.log(min);
+
+  if (min < max) {
+    logRange(min + 1, max);
+  }
+}
+
+function customFlat(array, depth = 1) {
+  if (depth < 0) {
+    console.error("depth must be a positive value");
+    return;
+  }
+  let newArr = [];
+  if (depth === 0) {
+    newArr = newArr.concat(array);
+    return newArr;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      //Always arrays
+      const buffer = customFlat(array[i], depth - 1);
+      newArr = newArr.concat(buffer);
+    } else {
+      // Always rest
+      newArr.push(array[i]);
+    }
+  }
+  return newArr;
 } */
-/* 
 
-// Arrow Functions
+const symbolExample = Symbol("test1");
+const symbolExample2 = Symbol("test2");
+const symbolExample3 = Symbol("test3");
 
-function sum1(a, b) {
-  return a + b;
+console.log(symbolExample);
+console.log(symbolExample2);
+console.log(symbolExample3);
+
+const object = {
+  test: "test",
+  symbolExample: symbolExample,
+  [symbolExample2]: 325,
+};
+
+object[symbolExample] = "test";
+
+//console.log(object);
+
+// Spread operator
+function log(...rest) {
+  // rest operator
+  const array = ["test", "string", true, {}];
+  console.log(rest);
+  console.log(array);
+  console.log(...array, ...rest); // spread operator
 }
 
-const sum2 = function (a, b) {
-  return a + b;
-};
+//log(1, "test", 4, "st", 5);
 
-const sum3 = a => a + a;
-
-const sum4 = (a) => a + a;
-
-const sum5 = (a) => {
-  return a + a;
-};
-
-const sum6 = (a) => {
-  return a + a;
-};
-
- */
-
-// Closure example(Замыкание)
-
-/* function makeCounter() {
-  let count = 10;
-
-  let test = 1;
-
-  return function addCount() {
-    return ++count;
-  };
+function merge(arrayA, arrayB) {
+  return [...arrayA, ...arrayB];
 }
 
-const counter = makeCounter(); // let count, addCount(), let test
-const counter2 = makeCounter(); */
+function append(array, object) {
+  return [...array, object];
+}
+
+// MAP, SET
+
+const map = new Map();
+
+map.set("key", { test: "test", age: 20 });
+map.set("key2", { test: "test", age: 20 });
+map.set("ke3", { test: "test", age: 20 });
+map.set(1, 1);
+map.set("1", "testsetest");
+
+// console.log(map);
+logMap(map);
+
+function logMap(map) {
+  for (const array of map.entries()) {
+    console.log(array);
+  }
+}
+
+const set = new Set();
+
+set.add("test");
+set.add("pizza");
+set.add("pizza");
+set.add("pizza");
+set.add("pizza");
+set.add("pizza");
+set.add("pizza");
+set.add("pizza");
+
+console.log(set);
+
+const arrayCopy = [
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  3,
+  6,
+  7,
+  8,
+];
+
+console.log(getUnique(arrayCopy));
+
+function getUnique(arrayWithCopies) {
+  const set = new Set(arrayWithCopies);
+
+  //console.log(set);
+
+  return [...set];
+}
