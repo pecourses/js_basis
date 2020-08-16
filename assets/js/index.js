@@ -41,57 +41,7 @@ MyArray.prototype = new ArrayMethods();
 const myArr = new MyArray("test", "teste2", "test3", 2345, true);
 
 // RECURSION
-
-/* function factorial(number) {
-  debugger;
-  if (number === 1) {
-    return number;
-  }
-
-  return number * factorial(number - 1);
-  // return 4 * 3 * 2 * 1
-}
-
-// with array, without template str.
-function logPar(number) {
-  if (number === 1) {
-    return "()";
-  }
-  return `(${logPar(number - 1)})`;
-}
-
-function power(number, pow) {
-  if (pow === 0) {
-    return 1;
-  }
-
-  if (pow === 1) {
-    return number;
-  }
-
-  const powAbs = Math.abs(pow);
-  const result = number * power(number, powAbs - 1);
-
-  if (pow > 0) {
-    return result;
-  } else {
-    return 1 / result;
-  }
-}
-
-function logRange(min, max) {
-  if (min === undefined || max === undefined || min > max) {
-    console.error("Enter a valid range");
-    return;
-  }
-
-  console.log(min);
-
-  if (min < max) {
-    logRange(min + 1, max);
-  }
-}
-
+/*
 function customFlat(array, depth = 1) {
   if (depth < 0) {
     console.error("depth must be a positive value");
@@ -115,106 +65,157 @@ function customFlat(array, depth = 1) {
   return newArr;
 } */
 
-const symbolExample = Symbol("test1");
-const symbolExample2 = Symbol("test2");
-const symbolExample3 = Symbol("test3");
+/* const group = {
+  title: "Our class",
+  students: ["Vlad", "Sasha", "Petya"],
 
-console.log(symbolExample);
-console.log(symbolExample2);
-console.log(symbolExample3);
+  logOurGroup() {
+    this.students.forEach((item) => {
+      console.log(this);
 
-const object = {
-  test: "test",
-  symbolExample: symbolExample,
-  [symbolExample2]: 325,
+      // console.log(`${this.title}: ${item}`);
+    });
+  },
 };
 
-object[symbolExample] = "test";
+function logTitle() {
+  console.log(this.title);
 
-//console.log(object);
+  const func = function (item) {
+    console.log(`${this.title}: ${item}`);
+  };
 
-// Spread operator
-function log(...rest) {
-  // rest operator
-  const array = ["test", "string", true, {}];
-  console.log(rest);
-  console.log(array);
-  console.log(...array, ...rest); // spread operator
+  const funcWithFixedThis = func.bind(this);
+
+  this.students.forEach(funcWithFixedThis);
 }
 
-//log(1, "test", 4, "st", 5);
+group.logTitle = logTitle;
 
-function merge(arrayA, arrayB) {
-  return [...arrayA, ...arrayB];
+group.logTitle(); */
+
+/* function isPalindrome(str) {
+  const newStr = str
+    .toLowerCase()
+    .replace(/ /g, "")
+    .split("")
+    .reverse()
+    .join("");
+
+  const strPrepared = str.toLowerCase().replace(/ /g, "");
+
+  return newStr === strPrepared;
 }
 
-function append(array, object) {
-  return [...array, object];
+console.log(isPalindrome("Re cAr"));
+ */
+
+/* const nestedObject = {
+  job: "НЕ ПРАВИЛЬНЫЙ job",
+  item: {
+    person: {
+      name: "Test",
+      age: "25",
+      position: {
+        company: "Test Company",
+        job: "test job",
+      },
+    },
+    person2: {
+      name: "Te2st",
+      age: "252",
+      position: {
+        company: "Tes2222t Company",
+        job: "test222 job",
+      },
+    },
+  },
+};
+
+const object2 = {
+  item: {
+    test: "65677446474756",
+  },
+};
+
+const { item } = object2;
+
+const { item: nestedObjectItem } = nestedObject;
+
+console.log("nestedObj", nestedObject);
+
+const arr = [item, nestedObjectItem, "testPrimitive"];
+console.log(arr);
+
+const [element, nestedElement, primitiveFromArray, undef] = arr;
+
+console.group("Arr destructured");
+
+console.log(element);
+console.log(nestedElement);
+console.log(primitiveFromArray);
+console.log(undef);
+
+console.groupEnd();
+ */
+/* const options = {
+  item: " test",
+  array: [1, 2, 3, 4, 54],
+  test: "log",
+}; */
+/* 
+function logFunction({ item= 'item', array = ["empty"], test = null } = {}) {
+  console.log(item, array, test);
 }
 
-// MAP, SET
+logFunction();
+ */
 
-const map = new Map();
+// task 4
 
-map.set("key", { test: "test", age: 20 });
-map.set("key2", { test: "test", age: 20 });
-map.set("ke3", { test: "test", age: 20 });
-map.set(1, 1);
-map.set("1", "testsetest");
+/* 
 
-// console.log(map);
-logMap(map);
+const result=addNum(10);
 
-function logMap(map) {
-  for (const array of map.entries()) {
-    console.log(array);
-  }
-}
+result(20)  // 30
 
-const set = new Set();
+result(20) // 50
 
-set.add("test");
-set.add("pizza");
-set.add("pizza");
-set.add("pizza");
-set.add("pizza");
-set.add("pizza");
-set.add("pizza");
-set.add("pizza");
+result(100) // 150
 
-console.log(set);
+*/
 
-const arrayCopy = [
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  3,
-  6,
-  7,
-  8,
-];
+const obj = {
+  test: "test",
+};
 
-console.log(getUnique(arrayCopy));
+obj.addFeature = "feature";
 
-function getUnique(arrayWithCopies) {
-  const set = new Set(arrayWithCopies);
+console.log(obj);
 
-  //console.log(set);
+Object.defineProperties(obj, {
+  definedProp: {
+    value: "testtsetes",
+    writable: false, // read-only
+    enumerable: false, // отключает итерируемость
+    configurable: false, // отключает изменяемость
+  },
+});
 
-  return [...set];
-}
+console.log(obj);
+
+const user = {
+  firstName: "Test",
+  lastName: "Testovich",
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  set fullName(newFullName) {
+    const [firstName, lastName] = newFullName.split(" ");
+
+    this.firstName = firstName;
+    this.lastName = lastName;
+  },
+};
